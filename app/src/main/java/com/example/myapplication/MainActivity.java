@@ -12,7 +12,7 @@ import org.mozilla.javascript.Scriptable;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    TextView resultTv, solutionTv;
+    TextView  solutionTv;
     MaterialButton buttonC, buttonBrackOpen, buttonBrackClose;
     MaterialButton buttonDivide, buttonMultiply, buttonPlus, buttonMinus, buttonEquals;
     MaterialButton button0, button1, button2, button3, button4, button5, button6, button7, button8, button9;
@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        resultTv = findViewById(R.id.editTextNumber);
         solutionTv = findViewById(R.id.hasil);
 
         assignId(buttonC, R.id.delete);
@@ -61,7 +60,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (buttonText.equals("AC")) {
             solutionTv.setText("");
-//            resultTv.setText("0");
             return;
         }
 
@@ -70,10 +68,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String finalResult = getResult(dataToCalculate);
                 double numericResult = Double.parseDouble(finalResult);
                 solutionTv.setText(finalResult);
-//                resultTv.setText(finalResult);
             } catch (Exception e) {
                 solutionTv.setText("Err");
-//                resultTv.setText("Err");
+
             }
             return;
         }
@@ -83,7 +80,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 dataToCalculate = dataToCalculate.substring(0, dataToCalculate.length() - 1);
             }
         } else {
-            // Replace 'X' with '*' for multiplication
             if (buttonText.equals("X")) {
                 buttonText = "*";
             }
@@ -97,10 +93,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String finalResult = getResult(dataToCalculate);
             double numericResult = Double.parseDouble(finalResult);
             if (!finalResult.equals("0")) {
-//                resultTv.setText(finalResult);
+
             }
         } catch (Exception e) {
-//            resultTv.setText("0");
+
         }
     }
 
